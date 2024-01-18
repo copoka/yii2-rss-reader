@@ -11,6 +11,8 @@
       "email": "copoka@yandex.ru"
     }
   ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "yiisoft/yii2": "^2"
   },
