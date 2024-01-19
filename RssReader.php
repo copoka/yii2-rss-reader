@@ -12,27 +12,31 @@ class RssReader extends \yii\base\Widget {
     public $channel;
     public $itemView  = 'item';
     public $pageSize  = 20;
+    public $category = 'Информация об отключениях';
     public $wrapClass = 'rss-wrap';
     public $wrapTag   = 'div';
-    public $indexName = 'entry';
 
     public function run() {
         try {
             $items = [];
-            $xml   = simplexml_load_file($this->channel); // suppress errors if feed is invalid
+
+            $ch = curl_init();  
+            curl_setopt($ch,CURLOPT_URL, $this->channel);
+            curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+            $output = curl_exec($ch);
+            curl_close($ch);
+            
+            $xml = simplexml_load_string($output);
 
             if ($xml === false) {
                 return 'Error parsing feed source: ' . $this->channel;
             }
-
-            foreach ($xml->{$this->indexName} as $item) {
-                $items[] = $item;
+            foreach ($xml->channel->item as $item) {
+                $item->category=(string)$xml->channel->item->category;
+                if (strcasecmp($item->category, $this->category) == 0) {
+                    $items[] = $item;
+                }
             }
-
-            \yii\helpers\ArrayHelper::multisort($items, function(\SimpleXMLElement $item) {
-                return $item->published;
-            }, SORT_ASC);
-
             // return data to VW as dataProvider
             return $this->render(
                 'wrap',
@@ -49,3 +53,4 @@ class RssReader extends \yii\base\Widget {
         }
     }
 }
+ 

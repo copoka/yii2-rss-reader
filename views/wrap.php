@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ListView;
-
+//var_dump($dataProvider);
 $content = ListView::widget([
 	'dataProvider' => $dataProvider,
 	'itemView'     => $this->context->itemView,

@@ -2,17 +2,6 @@ Yii2 RSS Reader
 ===============
 RSS reader widget for Yii2.
 
-Badges
------
-
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/ee1d3eaa-531a-45c6-9ba9-d6b6dda61d6e/mini.png)](https://insight.sensiolabs.com/projects/ee1d3eaa-531a-45c6-9ba9-d6b6dda61d6e)
-[![Latest Stable Version](https://poser.pugx.org/copoka/yii2-rss-reader/v/stable?format=flat-square)](https://packagist.org/packages/copoka/yii2-rss-reader)
-[![Latest Unstable Version](https://poser.pugx.org/copoka/yii2-rss-reader/v/unstable?format=flat-square)](https://packagist.org/packages/copoka/yii2-rss-reader)
-[![License](https://poser.pugx.org/copoka/yii2-rss-reader/license?format=flat-square)](https://packagist.org/packages/copoka/yii2-rss-reader)
-[![Total Downloads](https://poser.pugx.org/copoka/yii2-rss-reader/downloads?format=flat-square)](https://packagist.org/packages/copoka/yii2-rss-reader)
-[![Monthly Downloads](https://poser.pugx.org/copoka/yii2-rss-reader/d/monthly?format=flat-square)](https://packagist.org/packages/copoka/yii2-rss-reader)
-[![Daily Downloads](https://poser.pugx.org/copoka/yii2-rss-reader/d/daily?format=flat-square)](https://packagist.org/packages/copoka/yii2-rss-reader)
-
 
 Installation
 ------------
@@ -40,4 +29,5 @@ Once the widget is installed, add it to a view script:
         'pageSize'  => 5,
         'wrapClass' => 'rss-wrap',
         'wrapTag'   => 'div',
+        'category'  => 'sport'
     ]);
